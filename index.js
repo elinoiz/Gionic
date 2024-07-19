@@ -12,7 +12,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 
 bot.command("start", (ctx) => {
-    ctx.reply("❌Здравсвуйте!\nИспользуйте нашего бота для упрощения модерации своих бесед. Добавьте бота в чат, выдайте ему права администратора и пользуйтесь! Используйте команду /help, если возникнуть вопросы.", {
+    ctx.reply("✏Здравсвуйте!\n\nИспользуйте нашего бота для упрощения модерации своих бесед.\n\nДобавьте бота в чат, выдайте ему права администратора и пользуйтесь!\n\nИспользуйте команду /help, если возникнуть вопросы.", {
         reply_to_message_id: ctx.message.message_id
     });
 
@@ -612,9 +612,9 @@ bot.command("mute",async (ctx) => {
                                         reply_to_message_id: ctx.message.message_id
                                     });
 
-                                    console.log(await bot.telegram.getChatMember(chat_id,fromId))
+                                    //console.log(await bot.telegram.getChatMember(chat_id,fromId))
                                 } catch (error) {
-                                    console.error('Error muting chat member:', error);
+                                    //console.error('Error muting chat member:', error);
                                     ctx.reply('Произошла ошибка при муте пользователя.', {
                                         reply_to_message_id: ctx.message.message_id
                                     });
@@ -1626,8 +1626,8 @@ bot.command("unban", async (ctx) => {
                             //Если у пользователя custon title не Moderator, он распознается как обычный админ
 
                             if (adminsList[i].user.id == fromId){
-                                can_promote_from_user = adminsList[i].can_restrict_members
-                                custom_title_from_user = adminsList[i].custom_title_from_user
+                                can_restrict_from_user = adminsList[i].can_restrict_members
+                                custom_title_from_user = adminsList[i].custom_title
                                 
                             }
 
@@ -1680,7 +1680,7 @@ bot.command("unban", async (ctx) => {
                                 });
 
                             } catch (error) {
-                                console.error('Error unmuting chat member:', error);
+                                //onsole.error('Error unmuting chat member:', error);
                                 ctx.reply('Произошла ошибка при снятии мута с пользователя.', {
                                     reply_to_message_id: ctx.message.message_id
                                 });
@@ -1869,7 +1869,7 @@ bot.command("unban", async (ctx) => {
                                         reply_to_message_id: ctx.message.message_id
                                     });
                                 } catch (error) {
-                                    console.error('Error unmuting chat member:', error);
+                                    //console.error('Error unmuting chat member:', error);
                                     ctx.reply('Произошла ошибка при снятии мута с пользователя.', {
                                         reply_to_message_id: ctx.message.message_id
                                     });
